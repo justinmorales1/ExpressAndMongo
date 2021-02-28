@@ -14,8 +14,18 @@ module.exports = app => {
 
 module.exports = app => {
     app.get('/retrieve/forms', async (req, res) => {
-        console.log('The req is', req.body)
+
         const forms = await User.find(req.body);
+
+        res.send(forms);
+
+    });
+};
+
+
+module.exports = app => {
+    app.get('/retrieve/all/forms', async (req, res) => {
+        const forms = await User.find();
 
         res.send(forms);
 
