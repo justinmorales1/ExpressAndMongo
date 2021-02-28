@@ -9,4 +9,4 @@ const userSchema = new Schema({
     age: Number
 });
 
-mongoose.model('user', userSchema);
+mongoose.model('users', userSchema);

@@ -1,21 +1,12 @@
 const mongoose = require('mongoose');
-const User = mongoose.model('user');
+const User = mongoose.model('users');
 
 module.exports = app => {
     app.post('/users', async (req, res) => {
-        console.log('The req is', req)
+        console.log('The req is', req.body)
 
-        const info = {
-            name: 'justin matthew morales',
-            employeeId: 1234,
-            age:28
-        };
-
-        const user = await new User(info ).save();
+        const user = await new User(req.body).save();
 
         res.send(user);
-
     });
-
-
 };

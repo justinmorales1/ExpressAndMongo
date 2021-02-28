@@ -1,6 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const keys = require('./config/dev');
+const bodyParser = require('body-parser');
+
 
 //When this file boots up this require lets mongoose know to handle the configurations
 require('./models/User');
@@ -9,6 +11,10 @@ require('./models/User');
 mongoose.connect(keys.mongoId)
 
 const app = express();
+
+app.use(
+    bodyParser.json()
+);
 
 
 require('./routes/userRoutes')(app);
